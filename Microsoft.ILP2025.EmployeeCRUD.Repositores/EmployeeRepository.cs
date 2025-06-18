@@ -40,6 +40,7 @@ namespace Microsoft.ILP2025.EmployeeCRUD.Repositores
             {
                 employee.Name = updatedEmployee.Name;
                 employee.Email = updatedEmployee.Email;
+                employee.PhoneNumber = updatedEmployee.PhoneNumber;
                 employee.Salary = updatedEmployee.Salary;
                 employee.Department = updatedEmployee.Department;
                 employee.Location = updatedEmployee.Location;
@@ -76,29 +77,5 @@ namespace Microsoft.ILP2025.EmployeeCRUD.Repositores
         }
 
 
-
-
-
-        // public async Task<List<EmployeeEntity>> GetAllEmployees()
-        // {
-        //     return await Task.FromResult(this.GetEmployees());
-        // }
-
-        // public async Task<EmployeeEntity> GetEmployee(int id)
-        // {
-        //     var employees = this.GetEmployees();
-
-        //     return await Task.FromResult(employees.FirstOrDefault(e => e.Id == id));
-        // }
-
-        // private List<EmployeeEntity> GetEmployees()
-        // {
-        //     var employees = new List<EmployeeEntity>();
-
-        //     employees.Add(new EmployeeEntity { Id = 1, Name = "Pradip" });
-        //     employees.Add(new EmployeeEntity { Id = 2, Name = "Shrikanth" });
-
-        //     return employees;
-        // }
     }
 }

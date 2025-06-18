@@ -16,16 +16,4 @@ namespace Microsoft.ILP2025.EmployeeCRUD.Repositores
     Task DeleteEmployee(int id);
 }
 
-
-
-
-
-
-
-    // public interface IEmployeeRepository
-    // {
-    //     Task<EmployeeEntity> GetEmployee(int id);
-
-    //     Task<List<EmployeeEntity>> GetAllEmployees();
-    // }
 }

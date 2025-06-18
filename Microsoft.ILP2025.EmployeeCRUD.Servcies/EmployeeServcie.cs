@@ -35,21 +35,5 @@ namespace Microsoft.ILP2025.EmployeeCRUD.Servcies
 
 
 
-        // public IEmployeeRepository employeeRepository { get; set; }
-
-        // public EmployeeServcie(IEmployeeRepository employeeRepository)
-        // {
-        //     this.employeeRepository = employeeRepository;
-        // }
-
-        // public async Task<List<EmployeeEntity>> GetAllEmployees()
-        // {
-        //     return await employeeRepository.GetAllEmployees();
-        // }
-
-        // public async Task<EmployeeEntity> GetEmployee(int id)
-        // {
-        //     return await employeeRepository.GetEmployee(id);
-        // }
     }
 }

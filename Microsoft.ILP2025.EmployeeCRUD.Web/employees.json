@@ -1,10 +1,37 @@
 [
   {
     "Id": 1,
-    "Name": "emp1",
+    "Name": "Edison",
     "Salary": 45000.00,
-    "Email": "emp1@gmail.com",
-    "Department": "IT",
+    "PhoneNumber":"777777773",
+    "Email": "eddy55@gmail.com",
+    "Department": "HR",
     "Location": "Hyderabad"
+  },
+  {
+    "Id": 2,
+    "Name": "spandy",
+    "Salary": 95000.00,
+    "PhoneNumber":"777777775",
+    "Email": "spa99@gmail.com",
+    "Department": "CEO",
+    "Location": "Banglore"
+  },
+  {
+    "Id": 3,
+    "Name": "Monalisa",
+    "Salary": 75000.00,
+    "PhoneNumber":"777777777",
+    "Email": "mona39@gmail.com",
+    "Department": "TD",
+    "Location": "Pune"
+  },{
+    "Id": 4,
+    "Name": "Tata ratan",
+    "Salary": 65000.00,
+    "PhoneNumber":"777777771",
+    "Email": "tata699@gmail.com",
+    "Department": "TL",
+    "Location": "Noida"
   }
 ]

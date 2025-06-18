@@ -1,108 +1,98 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.ILP2025.EmployeeCRUD.Repositores;
-using Microsoft.ILP2025.EmployeeCRUD.Servcies;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.ILP2025.EmployeeCRUD.Entities;
-
-
+using Microsoft.ILP2025.EmployeeCRUD.Servcies;
 
 namespace Microsoft.ILP2025.EmployeeCRUD.Web.Controllers
 {
     public class EmployeeController : Controller
     {
-         private readonly IEmployeeService employeeService;
+        private readonly IEmployeeService _employeeService;
+        private readonly ILogger<EmployeeController> _logger;
 
-    public EmployeeController(IEmployeeService employeeService)
-    {
-        this.employeeService = employeeService;
-    }
-
-    public async Task<IActionResult> Index()
-    {
-        var employees = await employeeService.GetAllEmployees();
-        return View(employees);
-    }
-
-    public async Task<IActionResult> Details(int id)
-    {
-        var employee = await employeeService.GetEmployee(id);
-        return View(employee);
-    }
-
-    public IActionResult Create()
-    {
-        return View();
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Create(EmployeeEntity employee)
-    {
-        if (ModelState.IsValid)
+        public EmployeeController(IEmployeeService employeeService, ILogger<EmployeeController> logger)
         {
-            await employeeService.CreateEmployee(employee);
+            _employeeService = employeeService;
+            _logger = logger;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            var employees = await _employeeService.GetAllEmployees();
+            return View(employees);
+        }
+
+        public async Task<IActionResult> Details(int id)
+        {
+            var employee = await _employeeService.GetEmployeeById(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            return View(employee);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(EmployeeEntity employee)
+        {
+            if (ModelState.IsValid)
+            {
+                await _employeeService.AddEmployee(employee);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(employee);
+        }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var employee = await _employeeService.GetEmployeeById(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            return View(employee);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(EmployeeEntity employee)
+        {
+            if (ModelState.IsValid)
+            {
+                await _employeeService.UpdateEmployee(employee);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(employee);
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var employee = await _employeeService.GetEmployeeById(id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+            return View(employee);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            await _employeeService.DeleteEmployee(id);
             return RedirectToAction(nameof(Index));
         }
-        return View(employee);
-    }
 
-    public async Task<IActionResult> Edit(int id)
-    {
-        var employee = await employeeService.GetEmployee(id);
-        return View(employee);
-    }
-
-    [HttpPost]
-    public async Task<IActionResult> Edit(EmployeeEntity employee)
-    {
-        if (ModelState.IsValid)
+        public IActionResult Error()
         {
-            await employeeService.UpdateEmployee(employee);
-            return RedirectToAction(nameof(Index));
+            _logger.LogError("An error occurred in EmployeeController.");
+            return View();
         }
-        return View(employee);
-    }
-
-    public async Task<IActionResult> Delete(int id)
-    {
-        var employee = await employeeService.GetEmployee(id);
-        if(employee==null){
-            return NotFound();
-        }
-        return View(employee);
-    }
-
-    [HttpPost, ActionName("Delete")]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteConfirmed(int id)
-    {
-        await employeeService.DeleteEmployee(id);
-        return RedirectToAction(nameof(Index));
-    }
-        
-        
-        
-        
-        
-        
-        // public IEmployeeService employeeService { get; set; }
-
-        // public EmployeeController(IEmployeeService employeeService)
-        // {
-        //     this.employeeService = employeeService;
-        // }
-
-        // // GET: EmployeeController
-        // public async Task<ActionResult> Index()
-        // {
-        //     var employees = await this.employeeService.GetAllEmployees();
-        //     return View(employees);
-        // }
-
-        // // GET: EmployeeController/Details/5
-        // public async Task<ActionResult> Details(int id)
-        // {
-        //     var employee = await this.employeeService.GetEmployee(id);
-        //     return View(employee);
-        // }      
     }
 }

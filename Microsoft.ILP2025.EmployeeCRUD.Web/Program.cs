@@ -10,7 +10,9 @@ namespace Microsoft.ILP2025.EmployeeCRUD.Web
             var builder = WebApplication.CreateBuilder(args);
 
             //Inject dependencies 
-            builder.Services.AddScoped<IEmployeeService, EmployeeServcie>();
+            // WRONG
+            builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+
             builder.Services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
             // Add services to the container.
@@ -22,7 +24,7 @@ namespace Microsoft.ILP2025.EmployeeCRUD.Web
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
-               
+
                 app.UseHsts();
             }
 
@@ -41,3 +43,4 @@ namespace Microsoft.ILP2025.EmployeeCRUD.Web
         }
     }
 }
+

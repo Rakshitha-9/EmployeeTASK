@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 namespace Microsoft.ILP2025.EmployeeCRUD.Servcies
 {
     public interface IEmployeeService
-{
-    Task<EmployeeEntity> GetEmployee(int id);
-    Task<List<EmployeeEntity>> GetAllEmployees();
-    Task CreateEmployee(EmployeeEntity employee);
-    Task UpdateEmployee(EmployeeEntity employee);
-    Task DeleteEmployee(int id);
+    {
+        Task<IEnumerable<EmployeeEntity>> GetAllEmployees();
+        Task<EmployeeEntity> GetEmployeeById(int id);
+        Task AddEmployee(EmployeeEntity employee);
+        Task UpdateEmployee(EmployeeEntity employee);
+        Task DeleteEmployee(int id);
+    }
 }
 
-}

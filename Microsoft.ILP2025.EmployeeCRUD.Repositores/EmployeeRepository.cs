@@ -48,7 +48,6 @@ namespace Microsoft.ILP2025.EmployeeCRUD.Repositores
             {
                 employee.Name = updatedEmployee.Name;
                 employee.Email = updatedEmployee.Email;
-                employee.PhoneNumber = updatedEmployee.PhoneNumber;
                 employee.Salary = updatedEmployee.Salary;
                 employee.Department = updatedEmployee.Department;
                 employee.Location = updatedEmployee.Location;

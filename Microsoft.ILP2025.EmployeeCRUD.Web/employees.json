@@ -1,37 +1,26 @@
 [
   {
     "Id": 1,
-    "Name": "Edison",
+    "Name": "Rakshitha",
     "Salary": 45000.00,
-    "PhoneNumber":"777777773",
-    "Email": "eddy55@gmail.com",
+    "Email": "rakshitha@gmail.com",
     "Department": "HR",
     "Location": "Hyderabad"
   },
   {
     "Id": 2,
-    "Name": "spandy",
-    "Salary": 95000.00,
-    "PhoneNumber":"777777775",
-    "Email": "spa99@gmail.com",
-    "Department": "CEO",
+    "Name": "Harika",
+    "Salary": 55000.00,
+    "Email": "harika@gmail.com",
+    "Department": "TD",
     "Location": "Banglore"
   },
   {
     "Id": 3,
-    "Name": "Monalisa",
-    "Salary": 75000.00,
-    "PhoneNumber":"777777777",
-    "Email": "mona39@gmail.com",
-    "Department": "TD",
-    "Location": "Pune"
-  },{
-    "Id": 4,
-    "Name": "Tata ratan",
+    "Name": "emp",
     "Salary": 65000.00,
-    "PhoneNumber":"777777771",
-    "Email": "tata699@gmail.com",
-    "Department": "TL",
-    "Location": "Noida"
+    "Email": "emp@gmail.com",
+    "Department": "Finance",
+    "Location": "Hyderabad"
   }
 ]

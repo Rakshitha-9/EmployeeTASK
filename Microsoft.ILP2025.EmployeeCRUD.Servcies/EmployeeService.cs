@@ -1,6 +1,6 @@
 ﻿using Microsoft.ILP2025.EmployeeCRUD.Entities;
-using Microsoft.ILP2025.EmployeeCRUD.Repositores; // <-- for IEmployeeRepository
-using Microsoft.ILP2025.EmployeeCRUD.Servcies;   // <-- for IEmployeeService
+using Microsoft.ILP2025.EmployeeCRUD.Repositores; // for IEmployeeRepository
+using Microsoft.ILP2025.EmployeeCRUD.Servcies;   // for IEmployeeService
 
 namespace Microsoft.ILP2025.EmployeeCRUD.Servcies
 {

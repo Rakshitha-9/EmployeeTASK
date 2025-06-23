@@ -20,7 +20,7 @@ namespace Microsoft.ILP2025.EmployeeCRUD.Repositores
             return await Task.FromResult(GetEmployees());
         }
 
-        // 🔧 Renamed to match expected interface
+        
         public async Task<EmployeeEntity?> GetEmployeeById(int id)
         {
             _logger.LogInformation($"Fetching employee with ID = {id}");
@@ -28,7 +28,7 @@ namespace Microsoft.ILP2025.EmployeeCRUD.Repositores
             return await Task.FromResult(employees.FirstOrDefault(e => e.Id == id));
         }
 
-        // 🔧 Renamed to match expected interface
+        
         public async Task AddEmployee(EmployeeEntity employee)
         {
             _logger.LogInformation("Adding a new employee.");
